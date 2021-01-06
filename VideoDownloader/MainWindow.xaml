@@ -8,15 +8,15 @@
         Title="MainWindow" Height="450" Width="650">
     <Grid>
         <Label Content="ダウンロードするURL" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top"/>
-        <Button Content="Download" HorizontalAlignment="Left" Margin="550,18,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-1.227,0.95" Height="23"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="135,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="404"/>
+        <Button Content="Download" HorizontalAlignment="Left" Margin="550,18,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-1.227,0.95" Height="23" Click="Button_Click"/>
+        <TextBox x:Name="downloadURL" HorizontalAlignment="Left" Height="23" Margin="135,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="404"/>
         <TextBox HorizontalAlignment="Left" Height="22" Margin="135,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="404"/>
         <Label Content="ダウンロード先のフォルダ" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="120"/>
         <Button Content="Folder Select" HorizontalAlignment="Left" Margin="550,66,0,0" VerticalAlignment="Top" Width="75" Height="22"/>
         <Label Content="引数の追加" HorizontalAlignment="Left" Margin="10,117,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="22" Margin="135,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="404"/>
         <Label Content="ログ" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="228" Margin="135,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="404"/>
+        <TextBox x:Name="outputLog" HorizontalAlignment="Left" Height="228" Margin="135,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="404"/>
 
     </Grid>
 </Window>
