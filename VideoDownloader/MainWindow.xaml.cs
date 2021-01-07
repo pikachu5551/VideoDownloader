@@ -23,8 +23,7 @@ namespace VideoDownloader
     public partial class MainWindow : Window
     {
         /* youtube-dlのファイルパスを変数に代入
-           @はヒアドキュメントという物の為に付けている
-           エスケープシーケンスが不要になる */
+           @はヒアドキュメントという物の為に付けている(エスケープシーケンスが不要になる) */
         public string YoutubeDlFilePath = Environment.CurrentDirectory + @"\youtube-dl.exe";
         public MainWindow()
         {
@@ -40,12 +39,26 @@ namespace VideoDownloader
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            outputLog.Text = YoutubeDlFilePath;
-            /*if (!(downloadURL.Text == null))
+
+            // ダウンロードするURLにURLを貼ってない場合にクリップボードから文字列を取得
+            if (downloadURL.Text == "")
             {
-                // 第一引数のプロセスを起動
-                Process.Start(, downloadURL.Text);
-            }*/
+                downloadURL.Text = Clipboard.GetText();
+            }
+            string saveFolder = "";
+
+            if (downloadFolder.Text != "")
+            {
+                saveFolder = @" -o " + "\"" + downloadFolder.Text + "\"";
+            }
+
+            string DlCommand = downloadURL.Text + saveFolder;
+
+            outputLog.Text = DlCommand;
+            // 第一引数のプロセスを起動、第二引数はyoutube-dlのコマンドラインに入力する文字列
+            Process.Start(YoutubeDlFilePath, DlCommand);
+            downloadURL.Text = "";
+            
         }
     }
 }
