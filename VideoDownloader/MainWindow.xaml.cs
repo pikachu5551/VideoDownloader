@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MSAPI = Microsoft.WindowsAPICodePack;
 
 namespace VideoDownloader
 {
@@ -37,6 +38,11 @@ namespace VideoDownloader
             }
         }
 
+        /// <summary>
+        /// Downloadボタンを押したときの処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
@@ -59,6 +65,27 @@ namespace VideoDownloader
             Process.Start(YoutubeDlFilePath, DlCommand);
             downloadURL.Text = "";
             
+        }
+        /// <summary>
+        /// Folder Selectを押した時の処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var dialog = new MSAPI::Dialogs.CommonOpenFileDialog();
+
+            // trueだとフォルダをfalseだとファイル選択になる
+            dialog.IsFolderPicker = true;
+            // ウィンドウのタイトル
+            dialog.Title = "ダウンロード先のフォルダを選択して下さい";
+            // 初期ディレクトリ
+            dialog.InitialDirectory = Environment.CurrentDirectory;
+            // フォルダの選択をしたとき、ダウンロード先のフォルダに表示
+            if(dialog.ShowDialog() == MSAPI::Dialogs.CommonFileDialogResult.Ok)
+            {
+                downloadFolder.Text = dialog.FileName;
+            }
         }
     }
 }
