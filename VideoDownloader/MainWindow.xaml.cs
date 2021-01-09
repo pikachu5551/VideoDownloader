@@ -36,6 +36,8 @@ namespace VideoDownloader
                 MessageBox.Show("次のフォルダにyoutube-dl.exeが存在しません\n" + Environment.CurrentDirectory);
                 Environment.Exit(1);
             }
+            argComboBox.Items.Add("mp4");
+
         }
 
         /// <summary>
@@ -58,7 +60,15 @@ namespace VideoDownloader
                 saveFolder = @" -o " + "\"" + downloadFolder.Text + "\\%(title)s.mp4" + "\"";
             }
 
-            string DlCommand = downloadURL.Text + saveFolder;
+            string add = "";
+            // 引数の追加のテキストボックスにコンボボックスの値を追加
+            addArg.Text = argComboBox.Text;
+            if (addArg.Text == "mp4")
+            {
+                add = " -f \"bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best\"";
+            }
+
+                string DlCommand = downloadURL.Text + add + saveFolder;
 
             outputLog.Text = DlCommand;
             // 第一引数のプロセスを起動、第二引数はyoutube-dlのコマンドラインに入力する文字列
