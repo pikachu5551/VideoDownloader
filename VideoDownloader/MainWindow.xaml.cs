@@ -61,8 +61,13 @@ namespace VideoDownloader
             }
 
             string add = "";
+
             // 引数の追加のテキストボックスにコンボボックスの値を追加
-            addArg.Text = argComboBox.Text;
+            if(addArg.Text != "mp4")
+            {
+                addArg.Text = argComboBox.Text;
+            }
+
             if (addArg.Text == "mp4")
             {
                 add = " -f \"bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best\"";
