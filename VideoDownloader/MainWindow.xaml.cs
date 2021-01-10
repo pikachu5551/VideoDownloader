@@ -37,6 +37,7 @@ namespace VideoDownloader
                 Environment.Exit(1);
             }
             argComboBox.Items.Add("mp4");
+            argComboBox.Items.Add("mp3");
 
         }
 
@@ -63,17 +64,23 @@ namespace VideoDownloader
             string add = "";
 
             // 引数の追加のテキストボックスにコンボボックスの値を追加
-            if(addArg.Text != "mp4")
+            if(argComboBox.Text != "")
             {
                 addArg.Text = argComboBox.Text;
             }
 
-            if (addArg.Text == "mp4")
+            switch (addArg.Text)
             {
-                add = " -f \"bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best\"";
+                case "mp4":
+                    add = " -f \"bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best\"";
+                    break;
+                case "mp3":
+                    add = " --extract-audio";
+                    break;
             }
 
-                string DlCommand = downloadURL.Text + add + saveFolder;
+
+            string DlCommand = downloadURL.Text + add + saveFolder;
 
             outputLog.Text = DlCommand;
             // 第一引数のプロセスを起動、第二引数はyoutube-dlのコマンドラインに入力する文字列
