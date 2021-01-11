@@ -77,6 +77,8 @@ namespace VideoDownloader
                 case "mp3":
                     add = " --extract-audio";
                     break;
+                default:
+                    break;
             }
 
 
