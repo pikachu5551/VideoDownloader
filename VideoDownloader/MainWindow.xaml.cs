@@ -54,41 +54,8 @@ namespace VideoDownloader
             {
                 downloadURL.Text = Clipboard.GetText();
             }
-            string saveFolder = "";
 
-            if (downloadFolder.Text != "")
-            {
-                saveFolder = @" -o " + "\"" + downloadFolder.Text + "\\%(title)s.mp4" + "\"";
-            }
-
-            string add = "";
-
-            // 引数の追加のテキストボックスにコンボボックスの値を追加
-            if(argComboBox.Text != "")
-            {
-                addArg.Text = argComboBox.Text;
-            }
-
-            switch (addArg.Text)
-            {
-                case "mp4":
-                    add = " -f \"bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best\"";
-                    break;
-                case "mp3":
-                    add = " --extract-audio";
-                    break;
-                default:
-                    break;
-            }
-
-
-            string DlCommand = downloadURL.Text + add + saveFolder;
-
-            outputLog.Text = DlCommand;
-            // 第一引数のプロセスを起動、第二引数はyoutube-dlのコマンドラインに入力する文字列
-            Process.Start(YoutubeDlFilePath, DlCommand);
-            downloadURL.Text = "";
-            
+            Download();
         }
         /// <summary>
         /// Folder Selectを押した時の処理
@@ -112,41 +79,46 @@ namespace VideoDownloader
             }
             if(!(downloadURL.Text == ""))
             {
-                string saveFolder = "";
-
-                if (downloadFolder.Text != "")
-                {
-                    saveFolder = @" -o " + "\"" + downloadFolder.Text + "\\%(title)s.mp4" + "\"";
-                }
-
-                string add = "";
-
-                // 引数の追加のテキストボックスにコンボボックスの値を追加
-                if (argComboBox.Text != "")
-                {
-                    addArg.Text = argComboBox.Text;
-                }
-
-                switch (addArg.Text)
-                {
-                    case "mp4":
-                        add = " -f \"bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best\"";
-                        break;
-                    case "mp3":
-                        add = " --extract-audio";
-                        break;
-                    default:
-                        break;
-                }
-
-
-                string DlCommand = downloadURL.Text + add + saveFolder;
-
-                outputLog.Text = DlCommand;
-                // 第一引数のプロセスを起動、第二引数はyoutube-dlのコマンドラインに入力する文字列
-                Process.Start(YoutubeDlFilePath, DlCommand);
-                downloadURL.Text = "";
+                Download();
             }
+        }
+
+        private void Download()
+        {
+            string saveFolder = "";
+
+            if (downloadFolder.Text != "")
+            {
+                saveFolder = @" -o " + "\"" + downloadFolder.Text + "\\%(title)s.mp4" + "\"";
+            }
+
+            string add = "";
+
+            // 引数の追加のテキストボックスにコンボボックスの値を追加
+            if (argComboBox.Text != "")
+            {
+                addArg.Text = argComboBox.Text;
+            }
+
+            switch (addArg.Text)
+            {
+                case "mp4":
+                    add = " -f \"bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best\"";
+                    break;
+                case "mp3":
+                    add = " --extract-audio";
+                    break;
+                default:
+                    break;
+            }
+
+
+            string DlCommand = downloadURL.Text + add + saveFolder;
+
+            outputLog.Text = DlCommand;
+            // 第一引数のプロセスを起動、第二引数はyoutube-dlのコマンドラインに入力する文字列
+            Process.Start(YoutubeDlFilePath, DlCommand);
+            downloadURL.Text = "";
         }
     }
 }
