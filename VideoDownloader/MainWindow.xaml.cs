@@ -47,7 +47,7 @@ namespace VideoDownloader
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void DownloadButton_Click(object sender, RoutedEventArgs e)
         {
 
             // ダウンロードするURLにURLを貼ってない場合にクリップボードから文字列を取得
@@ -63,7 +63,7 @@ namespace VideoDownloader
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void FolderButton_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new MSAPI::Dialogs.CommonOpenFileDialog();
 
