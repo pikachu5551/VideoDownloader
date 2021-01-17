@@ -38,6 +38,7 @@ namespace VideoDownloader
             }
             argComboBox.Items.Add("mp4");
             argComboBox.Items.Add("mp3");
+            argComboBox.Items.Add("option");
 
         }
 
@@ -94,19 +95,17 @@ namespace VideoDownloader
 
             string add = "";
 
-            // 引数の追加のテキストボックスにコンボボックスの値を追加
-            if (argComboBox.Text != "")
-            {
-                addArg.Text = argComboBox.Text;
-            }
 
-            switch (addArg.Text)
+            switch (argComboBox.Text)
             {
                 case "mp4":
                     add = " -f \"bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best\"";
                     break;
                 case "mp3":
                     add = " --extract-audio";
+                    break;
+                case "option":
+                    add = " " + addArg.Text;
                     break;
                 default:
                     break;
