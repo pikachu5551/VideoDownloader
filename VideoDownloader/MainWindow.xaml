@@ -14,10 +14,10 @@
         <Label Content="ダウンロード先のフォルダ" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="120"/>
         <Button Content="Folder Select" HorizontalAlignment="Left" Margin="550,66,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="Button_Click_1"/>
         <Label Content="引数の追加" HorizontalAlignment="Left" Margin="10,117,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="addArg" HorizontalAlignment="Left" Height="22" Margin="135,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="404" Text="mp4"/>
+        <TextBox x:Name="addArg" HorizontalAlignment="Left" Height="22" Margin="135,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="404"/>
         <Label Content="ログ" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="outputLog" HorizontalAlignment="Left" Height="228" Margin="135,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="404"/>
-        <ComboBox x:Name="argComboBox" HorizontalAlignment="Left" Margin="550,121,0,0" VerticalAlignment="Top" Width="75"/>
+        <ComboBox x:Name="argComboBox" HorizontalAlignment="Left" Margin="550,121,0,0" VerticalAlignment="Top" Width="75" SelectedIndex="0"/>
 
     </Grid>
 </Window>
