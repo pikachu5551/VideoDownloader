@@ -17,7 +17,11 @@
         <TextBox x:Name="addArg" HorizontalAlignment="Left" Height="22" Margin="135,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="404"/>
         <Label Content="ログ" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="outputLog" HorizontalAlignment="Left" Height="228" Margin="135,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="404"/>
-        <ComboBox x:Name="argComboBox" HorizontalAlignment="Left" Margin="550,121,0,0" VerticalAlignment="Top" Width="75" SelectedIndex="0"/>
+        <ComboBox x:Name="argComboBox" HorizontalAlignment="Left" Margin="550,121,0,0" VerticalAlignment="Top" Width="75" SelectedIndex="0">
+            <ComboBoxItem Content="mp4"/>
+            <ComboBoxItem Content="mp3"/>
+            <ComboBoxItem Content="option"/>
+        </ComboBox>
 
     </Grid>
 </Window>

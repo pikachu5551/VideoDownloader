@@ -36,9 +36,9 @@ namespace VideoDownloader
                 MessageBox.Show("次のフォルダにyoutube-dl.exeが存在しません\n" + Environment.CurrentDirectory);
                 Environment.Exit(1);
             }
-            argComboBox.Items.Add("mp4");
+           /* argComboBox.Items.Add("mp4");
             argComboBox.Items.Add("mp3");
-            argComboBox.Items.Add("option");
+            argComboBox.Items.Add("option");*/
 
         }
 
