@@ -119,5 +119,14 @@ namespace VideoDownloader
             Process.Start(YoutubeDlFilePath, DlCommand);
             downloadURL.Text = "";
         }
+
+        private void downloadURL_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key != Key.Enter)
+            {
+                return;
+            }
+            Download();
+        }
     }
 }
